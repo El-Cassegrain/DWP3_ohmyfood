@@ -1,0 +1,912 @@
+/* Variables */
+/* Fonts */
+/* Utilities */
+/* Mixins */ /* Loader style */
+.loader-container {
+  width: 100%;
+  height: 100vh;
+  display: block;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #99E2D0;
+  -webkit-animation: colorAnim 5s linear 1 forwards;
+          animation: colorAnim 5s linear 1 forwards;
+  opacity: 1;
+  visibility: visible;
+}
+
+.loader-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.loader {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 0.35em solid rgba(255, 255, 255, 0.25);
+  border-left: 0.35em solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  -webkit-animation: loaderAnim 1s linear infinite;
+          animation: loaderAnim 1s linear infinite;
+}
+
+.loader-svg-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+.loader-svg-container svg {
+  transform-box: fill-box;
+  transform-origin: center;
+  -webkit-animation: loaderAnimSvg 0.85s infinite;
+          animation: loaderAnimSvg 0.85s infinite;
+  width: 32px;
+}
+.loader-svg-container svg .st0 {
+  fill: #fff;
+}
+
+@-webkit-keyframes loaderAnim {
+  from {
+    transform: rotateZ(0deg);
+    transform-origin: center center;
+  }
+  to {
+    transform: rotateZ(360deg);
+    transform-origin: center center;
+  }
+}
+
+@keyframes loaderAnim {
+  from {
+    transform: rotateZ(0deg);
+    transform-origin: center center;
+  }
+  to {
+    transform: rotateZ(360deg);
+    transform-origin: center center;
+  }
+}
+@-webkit-keyframes loaderAnimSvg {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+@keyframes loaderAnimSvg {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+@-webkit-keyframes colorAnim {
+  10% {
+    background-color: #9356DC;
+    opacity: 1;
+    visibility: visible;
+  }
+  50% {
+    background-color: #FF79DA;
+    opacity: 1;
+    visibility: visible;
+  }
+  95% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    background-color: #99E2D0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes colorAnim {
+  10% {
+    background-color: #9356DC;
+    opacity: 1;
+    visibility: visible;
+  }
+  50% {
+    background-color: #FF79DA;
+    opacity: 1;
+    visibility: visible;
+  }
+  95% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    background-color: #99E2D0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* Global styles */
+/* Small reset */
+*, ::before, ::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.px-3 {
+  padding: 0 5%;
+  width: 100%;
+  padding-bottom: 24px;
+}
+
+.btn-command {
+  display: inline-flex;
+  border-radius: 50px;
+  padding: 12px 18px;
+  color: #f5f0f5;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 3px 3px 10px rgba(2, 2, 2, 0.35);
+  cursor: pointer;
+  transition: all ease-in-out 0.15s;
+  background: rgb(255, 121, 218);
+  background: linear-gradient(175deg, rgb(255, 121, 218) 0%, rgb(147, 86, 220) 100%);
+  width: 160px;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+}
+.btn-command:hover, .btn-command:focus {
+  background: linear-gradient(175deg, rgb(255, 158, 227) 0%, rgb(157, 101, 225) 100%);
+  box-shadow: 5px 5px 10px rgba(2, 2, 2, 0.38);
+  transition: all ease-in-out 0.15s;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  border-radius: 50px;
+  padding: 12px 18px;
+  color: #f5f0f5;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 3px 3px 10px rgba(2, 2, 2, 0.35);
+  cursor: pointer;
+  transition: all ease-in-out 0.15s;
+  background-color: #9356DC;
+  text-decoration: none;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+  background: #9b63df;
+  box-shadow: 5px 5px 10px rgba(2, 2, 2, 0.38);
+  transition: all ease-in-out 0.15s;
+}
+
+/* Header */
+#main-header {
+  box-shadow: 0 1px 5px rgba(2, 2, 2, 0.2);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: #fff;
+}
+#main-header #prev-nav {
+  display: inline-flex;
+  position: absolute;
+  top: 18px;
+  left: 25px;
+}
+#main-header #prev-nav a > i {
+  color: #2a292a;
+}
+#main-header .logo-container {
+  padding: 14px 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#main-header .logo-container img {
+  width: 150px;
+}
+
+/* Like button styles */
+.like-button-container {
+  position: absolute;
+  right: 22px;
+  width: 35px;
+  height: 35px;
+  top: 0;
+}
+.like-button-container .like-button {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+.like-button-container .like-button svg {
+  max-width: 100%;
+  display: inline-flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.like-button-container .like-button svg.heart-stroke {
+  opacity: 1;
+}
+.like-button-container .like-button svg.heart-active {
+  opacity: 0;
+}
+.like-button-container .like-button:hover svg.heart-active, .like-button-container .like-button:active svg.heart-active, .like-button-container .like-button:focus svg.heart-active {
+  opacity: 1;
+  transition: fill ease-in 0.35s 0.012s, opacity linear 0.55s;
+}
+.like-button-container .like-button:hover svg.heart-active .st0, .like-button-container .like-button:active svg.heart-active .st0, .like-button-container .like-button:focus svg.heart-active .st0 {
+  fill: url("#purple-gradient");
+}
+.like-button-container .like-button:hover svg.heart-stroke, .like-button-container .like-button:active svg.heart-stroke, .like-button-container .like-button:focus svg.heart-stroke {
+  opacity: 0;
+  transition: fill ease-in 0.35s 0.012s, opacity linear 0.15s;
+}
+
+/* Main styles */
+/* Home styles */
+.location-container {
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  color: rgba(42, 41, 42, 0.9);
+}
+.location-container span {
+  display: inline-flex;
+  margin-left: -16px;
+  font-weight: 500;
+}
+.location-container span::before {
+  content: "\f3c5";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  padding-right: 16px;
+}
+.location-container i {
+  padding: 0 24px;
+}
+
+/* Explore section */
+#explore-section {
+  padding: 45px 20px;
+  text-align: center;
+  background-color: #f5f0f5;
+}
+#explore-section h1 {
+  line-height: 1.79rem;
+  padding: 0 35px;
+}
+#explore-section p {
+  font-weight: 300;
+  font-size: 1.15rem;
+  padding-top: 12px;
+  color: rgba(42, 41, 42, 0.9);
+}
+#explore-section button {
+  margin-top: 24px;
+  display: inline-flex;
+  border-radius: 50px;
+  padding: 12px 18px;
+  color: #f5f0f5;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 3px 3px 10px rgba(2, 2, 2, 0.35);
+  cursor: pointer;
+  transition: all ease-in-out 0.15s;
+  background: rgb(255, 121, 218);
+  background: linear-gradient(175deg, rgb(255, 121, 218) 0%, rgb(147, 86, 220) 100%);
+}
+#explore-section button:hover, #explore-section button:focus {
+  background: linear-gradient(175deg, rgb(255, 158, 227) 0%, rgb(157, 101, 225) 100%);
+  box-shadow: 5px 5px 10px rgba(2, 2, 2, 0.38);
+  transition: all ease-in-out 0.15s;
+}
+
+/* How it works */
+#howitworks-section {
+  margin-top: 45px;
+}
+#howitworks-section ol {
+  list-style: none;
+  font-weight: 500;
+  max-width: 350px;
+}
+#howitworks-section ol li {
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin: 24px 0;
+}
+#howitworks-section ol li .choose,
+#howitworks-section ol li .compose,
+#howitworks-section ol li .degust {
+  border-radius: 24px;
+  width: 100%;
+  padding: 28px;
+  font-size: 0.9rem;
+  box-shadow: 2px 4px 10px rgba(2, 2, 2, 0.15);
+}
+#howitworks-section ol li .choose::before,
+#howitworks-section ol li .compose::before,
+#howitworks-section ol li .degust::before {
+  content: "1";
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  padding: 4px 9px;
+  color: #f5f0f5;
+  border-radius: 50px;
+  background-color: #9356DC;
+}
+#howitworks-section ol li .compose::before {
+  content: "2";
+}
+#howitworks-section ol li .degust::before {
+  content: "3";
+}
+#howitworks-section ol .choose h3::before,
+#howitworks-section ol .compose h3::before,
+#howitworks-section ol .degust h3::before {
+  content: "";
+  font-family: "Font Awesome 6 Free";
+  color: #6b686b;
+  padding-right: 25px;
+  padding-left: 12px;
+  font-size: 1.185rem;
+}
+#howitworks-section ol .choose h3::before {
+  content: "\f3cd";
+}
+#howitworks-section ol .compose h3::before {
+  content: "\f03a";
+}
+#howitworks-section ol .degust h3::before {
+  content: "\f54e";
+  color: #9356DC;
+}
+#howitworks-section .bg-light {
+  background-color: #f9f6f9;
+  padding: 22px;
+}
+#howitworks-section .degust {
+  background-color: #f2eafb;
+}
+
+/* Restaurant section */
+#restaurant-list-section {
+  background-color: #f5f0f5;
+  margin-top: 45px;
+  padding-top: 45px;
+}
+#restaurant-list-section h2 {
+  padding-bottom: 20px;
+}
+#restaurant-list-section .card {
+  border-radius: 12px;
+  background-color: #fff;
+  margin: 0 0 24px;
+  padding-bottom: 6px;
+}
+#restaurant-list-section .card .card-header {
+  border-radius: 12px;
+  position: relative;
+}
+#restaurant-list-section .card .card-header img {
+  border-radius: 12px;
+  height: 160px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#restaurant-list-section .card .card-header .new-pill {
+  display: inline-flex;
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  padding: 6px 10px;
+  background-color: #99E2D0;
+  color: #1e6856;
+  border-radius: 2px;
+}
+#restaurant-list-section .card .card-body {
+  margin: 1rem;
+  position: relative;
+}
+#restaurant-list-section .card .card-body p {
+  font-weight: 300;
+  font-size: 1.125rem;
+  padding: 4px 0;
+}
+#restaurant-list-section .card .card-body a {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 576px) {
+  section#howitworks-section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  section#howitworks-section .container {
+    max-width: 450px;
+  }
+  #restaurant-list-section .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #restaurant-list-section .cards-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1200px) {
+  section#howitworks-section {
+    display: flex;
+    justify-content: flex-start;
+  }
+  section#howitworks-section .container {
+    max-width: 100vw;
+  }
+  section#howitworks-section ol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+  }
+  section#howitworks-section ol li {
+    width: 100%;
+    margin: 24px 20px;
+  }
+  section#howitworks-section ol li .choose,
+section#howitworks-section ol li .compose,
+section#howitworks-section ol li .degust {
+    padding: 28px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  #restaurant-list-section .cards-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+/* Menus style */
+.bg-container {
+  background-size: cover;
+  height: 18rem;
+  width: 100%;
+}
+.bg-container#palette-bg {
+  background-image: url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+}
+.bg-container#note-bg {
+  background-image: url("../img/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+}
+.bg-container#francaise-bg {
+  background-image: url("../img/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+}
+.bg-container#delice-bg {
+  background-image: url("../img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+}
+
+.container-menu {
+  background-color: #f5f0f5;
+  padding: 45px 5%;
+  margin-top: -65px;
+  border-top-left-radius: 42px;
+  border-top-right-radius: 42px;
+}
+.container-menu .title-container {
+  position: relative;
+}
+.container-menu .title-container h1 {
+  font-family: "Rufina", serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Menu content */
+.menu-content-container {
+  margin-top: 45px;
+}
+.menu-content-container h2 {
+  margin-top: 38px;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  position: relative;
+  padding-bottom: 8px;
+}
+.menu-content-container h2::after {
+  content: "";
+  display: inline-flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom: 3px solid #99E2D0;
+  height: 3px;
+  width: 50px;
+}
+.menu-content-container .menu-card {
+  display: grid;
+  cursor: pointer;
+  transform: translateY(4px);
+  box-shadow: 2px 4px 10px rgba(2, 2, 2, 0.15);
+  grid-template-columns: 1fr 30px;
+  max-width: 390px;
+  margin-top: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0.85rem 12px;
+  opacity: 0;
+  visibility: hidden;
+}
+.menu-content-container .menu-card p {
+  font-weight: 300;
+  padding-top: 4px;
+  max-width: 268px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.95rem;
+}
+.menu-content-container .menu-card .price {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Confirm state on hover/active */
+.menu-card::after {
+  content: "\f058";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  background-color: #99E2D0;
+  align-items: center;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  font-size: 1.45rem;
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+}
+
+.menu-card:hover,
+.menu-card:active {
+  position: relative;
+  transition: all ease 0.25s;
+}
+.menu-card:hover::after,
+.menu-card:active::after {
+  opacity: 1;
+  visibility: visible;
+  width: 62px;
+  transition: all ease 0.25s;
+}
+.menu-card:hover .price,
+.menu-card:active .price {
+  position: relative;
+  transform: translateX(-65px);
+  transition: all ease 0.35s 0.012s;
+}
+.menu-card:hover p,
+.menu-card:active p {
+  width: 230px;
+}
+
+.command-button-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+/* Menus apparition delayed */
+@-webkit-keyframes delayed-apparition {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-6px);
+  }
+}
+@keyframes delayed-apparition {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-6px);
+  }
+}
+.menu-card.card-1 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.1s + 0.045s);
+          animation-delay: calc(0.1s + 0.045s);
+}
+
+.menu-card.card-2 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.2s + 0.045s);
+          animation-delay: calc(0.2s + 0.045s);
+}
+
+.menu-card.card-3 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.3s + 0.045s);
+          animation-delay: calc(0.3s + 0.045s);
+}
+
+.menu-card.card-4 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.4s + 0.045s);
+          animation-delay: calc(0.4s + 0.045s);
+}
+
+.menu-card.card-5 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.5s + 0.045s);
+          animation-delay: calc(0.5s + 0.045s);
+}
+
+.menu-card.card-6 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.6s + 0.045s);
+          animation-delay: calc(0.6s + 0.045s);
+}
+
+.menu-card.card-7 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.7s + 0.045s);
+          animation-delay: calc(0.7s + 0.045s);
+}
+
+.menu-card.card-8 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.8s + 0.045s);
+          animation-delay: calc(0.8s + 0.045s);
+}
+
+.menu-card.card-9 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.9s + 0.045s);
+          animation-delay: calc(0.9s + 0.045s);
+}
+
+.menu-card.card-10 {
+  -webkit-animation-name: delayed-apparition;
+          animation-name: delayed-apparition;
+  -webkit-animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+          animation-timing-function: cubic-bezier(0.38, 0.38, 0.5, 0.92);
+  -webkit-animation-duration: 0.35s;
+          animation-duration: 0.35s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: calc(0.10s + 0.045s);
+          animation-delay: calc(0.10s + 0.045s);
+}
+
+@media screen and (min-width: 576px) {
+  .bg-container {
+    height: 42vh;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-menu .title-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 390px;
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 25px;
+  }
+  .container-menu .menu-content-container {
+    margin-top: 22px;
+  }
+  .container-menu .menu-card {
+    width: 650px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .bg-container {
+    height: 50vh;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container-menu .title-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 25px;
+  }
+  .container-menu .menu-content-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .container-menu .menu-card {
+    width: 100%;
+  }
+}
+/* Footer styles */
+footer#main-footer {
+  background-color: #2a292a;
+  padding: 45px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f5f0f5;
+}
+footer#main-footer .logo-footer-container {
+  padding-bottom: 12px;
+}
+footer#main-footer .logo-footer-container svg {
+  width: 120px;
+}
+footer#main-footer a {
+  color: #f5f0f5;
+  display: block;
+  text-decoration: none;
+  padding: 4px 0;
+}
+footer#main-footer a#propose-restaurant::before, footer#main-footer a#become-partner::before {
+  content: "";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 700;
+  padding-right: 10px;
+}
+footer#main-footer a#propose-restaurant::before {
+  content: "\f2e7";
+}
+footer#main-footer a#become-partner::before {
+  content: "\f4c4";
+}
+
+#copyright {
+  background-color: #1d1c1d;
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.7rem;
+}
+#copyright p {
+  display: flex;
+  align-items: center;
+}
+#copyright p a {
+  display: inline-flex;
+  padding-left: 6px;
+  text-decoration: underline;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,102 @@
+/* Loader style */
+.loader-container {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $pastel-green;
+    animation: colorAnim 5s linear 1 forwards;
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader-spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.loader {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 0.35em solid rgba(255, 255, 255, 0.25);
+    border-left: 0.35em solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    animation: loaderAnim 1s linear infinite;
+}
+
+.loader-svg-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+
+    svg {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: loaderAnimSvg 0.85s infinite;
+        width: 32px;
+
+        .st0 {
+            fill: #fff;
+        }
+    }
+}
+
+@keyframes loaderAnim {
+    from {
+        transform: rotateZ(0deg);
+        transform-origin: center center;
+    }
+
+    to {
+        transform: rotateZ(360deg);
+        transform-origin: center center;
+
+    }
+}
+
+@keyframes loaderAnimSvg {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(-360deg);
+    }
+}
+
+@keyframes colorAnim {
+    10% {
+        background-color: $pastel-purple;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    50% {
+        background-color: $pastel-pink;
+        opacity: 1;
+        visibility: visible;
+    }
+    95% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        background-color: $pastel-green;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
