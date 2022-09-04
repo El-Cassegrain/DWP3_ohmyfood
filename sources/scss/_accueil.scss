@@ -43,9 +43,10 @@
         color: rgba($dark-gray, 0.9);
     }
 
-    button {
+    a {
         margin-top: 24px;
         @include main-btn;
+        text-decoration: none;
     }
 }
 
@@ -149,6 +150,11 @@
         background-color: #fff;
         margin: 0 0 24px;
         padding-bottom: 6px;
+
+        &:hover {
+            box-shadow: $box-shadow-hover;
+            transition: box-shadow ease-in 0.25ss;
+        }
 
         .card-header {
             border-radius: $card-border-radius;

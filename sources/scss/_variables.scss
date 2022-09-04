@@ -7,11 +7,13 @@ $dark-gray: #2a292a;
 $light: #f5f0f5;
 
 /* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 $main-font: "Roboto", sans-serif;
-$menu-title-font: "Rufina", serif;
+$menu-title-font: "Shrikhand", serif;
 
 /* Utilities */
 $section-margin-top: 45px;
 $card-border-radius: 12px;
 $menu-border-radius: 42px;
-$main-box-shadow: 2px 4px 10px rgba(2, 2, 2, 0.15);
+$main-box-shadow: 2px 2px 4px rgba(2, 2, 2, 0.18);
+$box-shadow-hover: 4px 4px 8px rgba(69, 29, 58, 0.124);
